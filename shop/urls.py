@@ -3,5 +3,6 @@ from .views import *
 
 app_name = 'shop'
 urlpatterns = [
-	path("", home, name='shop')
+	path("", home, name='home'),
+	path('product/<slug:slug>', detail, name='detail')
 ]

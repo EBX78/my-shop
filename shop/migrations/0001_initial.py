@@ -46,7 +46,7 @@ class Migration(migrations.Migration):
             options={
                 'verbose_name': 'محصول',
                 'verbose_name_plural': 'محصولات',
-                'ordering': ['-created'],
+                'ordering': ['-in_stock', '-updated'],
             },
         ),
     ]

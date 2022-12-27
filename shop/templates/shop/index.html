@@ -10,28 +10,38 @@
     p {
         color: gray;
     }
+    h1 {
+        color: gray;
+    }
+    h3 {
+        color: green;
+    }
     h4 {
         color: red;
+    }
+    a {
+        text-decoration: none;
     }
 </style>
 <body>
     <small>Admin panel: <a href="http://127.0.0.1:8000/admin/">Click Here</a></small>
     <center>
-        <h1>فروشگاه ابزارآلات رحمتی<h1>
+        <a href='{% url "shop:home" %}'><h1>فروشگاه ابزارآلات رحمتی<h1></a>
     </center>
 
     <center>
         {% for product in products %}
             <div>
                 <br><br>
-                <img src="{{product.image.url}}" alt="{{product.title}}" width="250">
+                <a target='_blank' href="{% url 'shop:detail' product.slug %}"><img src="{{product.image.url}}" alt="{{product.title}}" width="250"></a>
                 <h2><a href="{% url 'shop:detail' product.slug %}">{{product.title}}</a></h2>
-                <p>{{product.description}}</p>
+                <p>{{product.description | linebreaks | truncatewords:16}}</p>
                 {% if product.in_stock %}
                     <h4>موجود در انبار<h4>
                 {% else %}
                     <h4>نا موجود<h4>
                 {% endif %}
+                <h3>قیمت {{product.fprice}}</h3>
             </div>
         {% endfor %}
     </center>

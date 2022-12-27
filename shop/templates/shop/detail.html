@@ -3,19 +3,27 @@
     <title>Product page</title>
 </head>
 <style>
-    p {
+    h3 {
         color: green;
     }
     h4 {
+        color: blue;
+    }
+    h5 {
         color: red;
     }
 </style>
 <body>
 <div>
-    <img src="{{product.image.url}}" alt="{{product.title}}" width="400">
-    <h1>{{product.title}}</h1>
+    <img src="{{product.image.url}}" alt="{{product.title}}" width="450">
     <h3>{{product.category}}</h3>
-    <p>{{product.description}}</p>
+    <h1>{{product.title}}</h1>
+    <p>{{product.description  | linebreaks}}</p>
+    {% if product.in_stock %}
+        <h5>موجود در انبار<h5>
+    {% else %}
+        <h5>نا موجود<h5>
+    {% endif %}
     <h4>قیمت {{product.fprice}}</h4>
 </div>
 </body>

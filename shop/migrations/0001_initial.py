@@ -23,8 +23,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'verbose_name': 'دسته بندی',
-                'verbose_name_plural': 'دسته بندی ها',
-                'ordering': ['id']
+                'verbose_name_plural': 'دسته بندی ها'
             },
         ),
         migrations.CreateModel(
@@ -47,7 +46,6 @@ class Migration(migrations.Migration):
             options={
                 'verbose_name': 'محصول',
                 'verbose_name_plural': 'محصولات',
-                'ordering': ['-in_stock', '-updated'],
             },
         ),
     ]

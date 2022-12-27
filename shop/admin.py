@@ -6,6 +6,7 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ['name', 'slug']
     search_fields = ['name', 'slug']
     prepopulated_fields = {'slug':('name',)}
+    ordering = ['id']
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):

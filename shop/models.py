@@ -9,6 +9,7 @@ class Category(models.Model):
     class Meta:
         verbose_name = 'دسته بندی'
         verbose_name_plural='دسته بندی ها'
+        ordering = ['id']
 
     def __str__(self):
         return self.name

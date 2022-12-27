@@ -24,6 +24,7 @@ class Migration(migrations.Migration):
             options={
                 'verbose_name': 'دسته بندی',
                 'verbose_name_plural': 'دسته بندی ها',
+                'ordering': ['id']
             },
         ),
         migrations.CreateModel(

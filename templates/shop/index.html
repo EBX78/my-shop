@@ -1,49 +1,23 @@
-<html lang="en">
-<head>
-    <!-- <link rel="stylesheet" href="./style.css"> -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home page</title>
-</head>
-<style>
-    p {
-        color: gray;
-    }
-    h1 {
-        color: gray;
-    }
-    h3 {
-        color: green;
-    }
-    h4 {
-        color: red;
-    }
-    a {
-        text-decoration: none;
-    }
-</style>
-<body>
-    <small>Admin panel: <a href="http://127.0.0.1:8000/admin/">Click Here</a></small>
-    <center>
-        <a href='{% url "shop:home" %}'><h1>فروشگاه ابزارآلات رحمتی<h1></a>
-    </center>
+{% extends './base.html' %}
+{% load static %}
 
+{% block title %}All Products{% endblock title %}
+
+{% block content %}
     <center>
         {% for product in products %}
             <div>
                 <br><br>
                 <a target='_blank' href="{% url 'shop:detail' product.slug %}"><img src="{{product.image.url}}" alt="{{product.title}}" width="250"></a>
-                <h2><a href="{% url 'shop:detail' product.slug %}">{{product.title}}</a></h2>
-                <p>{{product.description | linebreaks | truncatewords:16}}</p>
+                <h2><a class="product-title" href="{% url 'shop:detail' product.slug %}">{{product.title}}</a></h2>
+                <p class="product-desc">{{product.description | linebreaks | truncatewords:16}}</p>
+                <h3 class="product-price">قیمت {{product.fprice}}</h3>
                 {% if product.in_stock %}
-                    <h4>موجود در انبار<h4>
+                    <h4 class="in-stock">موجود در انبار<h4>
                 {% else %}
-                    <h4>نا موجود<h4>
+                    <h4 class="out-stock">نا موجود<h4>
                 {% endif %}
-                <h3>قیمت {{product.fprice}}</h3>
             </div>
         {% endfor %}
     </center>
-</body>
-</html>
+{% endblock content %}

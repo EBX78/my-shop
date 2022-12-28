@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from shop.models import Category, Product
 
-# Create your views here.
-def home(request):
+def categories(request):
+	return {'categories': Category.objects.all()}
+
+def all_products(request):
 	products = Product.objects.filter(is_active=True).order_by('-in_stock', '-updated')
 	return render(request, 'shop/index.html', {'products':products})
 

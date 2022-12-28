@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="{% static 'shop/css/style.css' %}" rel="stylesheet">
+        <script src="{% static '' %}" async defer></script>
+        <title>
+            Abbas Kala | {% block title %}{% endblock title %}
+        </title>
+    </head>
+    <body>
+        {% block tops %}
+            <small>Admin panel: <a href="http://127.0.0.1:8000/admin/">Click Here</a></small>
+            <center>
+                <a href='{% url "shop:all_products" %}'><h1 class="top-header">فروشگاه ابزارآلات رحمتی<h1></a>
+            </center>
+        {% endblock tops %}
+        <div class='content'>
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+/* body {
+    background-color: rgb(195, 195, 195);
+} */
+p {
+    color: gray;
+}
+h1.top-header {
+    color: rgb(3, 107, 107);
+}
+a.product-title {
+    color: rgb(11, 49, 155);
+}
+h3.product-price {
+    color: brown;
+}
+h4.in-stock {
+    color: green;
+}
+h4.out-stock {
+    color: black;
+}
+a {
+    text-decoration: none;
+}
+h3.product-category {
+    color: orange;
+}
+h5.in-stock {
+    color: green;
+}
+h5.out-stock {
+    color: black;
+}

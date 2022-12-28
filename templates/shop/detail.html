@@ -1,30 +1,19 @@
-<html>
-<head>
-    <title>Product page</title>
-</head>
-<style>
-    h3 {
-        color: green;
-    }
-    h4 {
-        color: blue;
-    }
-    h5 {
-        color: red;
-    }
-</style>
-<body>
-<div>
-    <img src="{{product.image.url}}" alt="{{product.title}}" width="450">
-    <h3>{{product.category}}</h3>
-    <h1>{{product.title}}</h1>
-    <p>{{product.description  | linebreaks}}</p>
-    {% if product.in_stock %}
-        <h5>موجود در انبار<h5>
-    {% else %}
-        <h5>نا موجود<h5>
-    {% endif %}
-    <h4>قیمت {{product.fprice}}</h4>
-</div>
-</body>
-</html>
+{% extends './base.html' %}
+{% load static %}
+
+{% block title %}{{product.title}}{% endblock title %}
+
+{% block content %}
+    <div>
+        <img src="{{product.image.url}}" alt="{{product.title}}" width="450">
+        <h3 class="product-category">{{product.category}}</h3>
+        <h1>{{product.title}}</h1>
+        <p>{{product.description  | linebreaks}}</p>
+        {% if product.in_stock %}
+            <h5 class="in-stock">موجود در انبار<h5>
+        {% else %}
+            <h5 class="out-stock">نا موجود<h5>
+        {% endif %}
+        <h3 class="product-price">قیمت {{product.fprice}}</h3>
+    </div>
+{% endblock content %}
